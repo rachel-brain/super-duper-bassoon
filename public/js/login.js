@@ -1,4 +1,4 @@
-// THIS CODE WILL NEED COMPLETELY RE-WORKING!!!
+// THIS CODE WILL NEED RE-WORKING!!!
 
 const loginFormHandler = async (event) => {
     event.preventDefault();

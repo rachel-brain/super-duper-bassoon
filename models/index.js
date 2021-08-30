@@ -1,15 +1,19 @@
 // THIS CODE WILL NEED CHECKING & MODIFYING!
 
 const Player = require('./Player');
-const Something = require('./Something');
+const Opponents = require('./Opponents');
 const Anotherthing = require('./Anotherthing');
 
-Something.hasMany(Anotherthing, {
-  foreignKey: 'something_id',
+Player.hasMany(Opponents, {
+  foreignKey: 'player_id',
 });
 
 Anotherthing.belongsTo(Something, {
   foreignKey: 'something_id',
 });
 
-module.exports = { Player, Something, Anotherthing };
+module.exports = {
+  Player,
+  Opponent,
+  Anotherthing
+};

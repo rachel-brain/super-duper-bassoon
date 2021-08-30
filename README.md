@@ -56,8 +56,8 @@ WHEN I visit the site for subsequent times
 THEN I do not have to re-enter my login details as they are saved via cookies
 ```
 
-## HEROKU URL
+## Heroku URL
 
 
-## GITHUB URL
+## GitHub URL
 https://github.com/rachel-brain/super-duper-bassoon

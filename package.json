@@ -19,7 +19,16 @@
   },
   "homepage": "https://github.com/rachel-brain/super-duper-bassoon#readme",
   "dependencies": {
-    "parcel-bundler": "^1.12.5",
-    "phaser": "^3.55.2"
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.1",
+    "controllers": "^0.0.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.0",
+    "parcel-bundler": "^1.9.4",
+    "phaser": "^3.55.2",
+    "sequelize": "^6.6.5"
   }
 }

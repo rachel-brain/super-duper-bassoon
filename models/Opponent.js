@@ -1,3 +1,5 @@
+// IS THIS CODE NEEDED FOR AN OPPONENT?
+
 const {
     Model,
     DataTypes
@@ -5,13 +7,13 @@ const {
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Player extends Model {
+class Opponent extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
-Player.init({
+Opponent.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -39,16 +41,16 @@ Player.init({
     },
 }, {
     hooks: {
-        async beforeCreate(newPlayerData) {
-            newPlayerData.password = await bcrypt.hash(newPlayerData.password, 10);
-            return newPlayerData;
+        async beforeCreate(newOpponentData) {
+            newOpponentData.password = await bcrypt.hash(newOpponentData.password, 10);
+            return newOpponentData;
         },
     },
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'player',
+    modelName: 'opponent',
 });
 
-module.exports = Player;
+module.exports = Opponent;
