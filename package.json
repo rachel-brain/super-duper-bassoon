@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "initdb": "node db/initDB.js",
-    "seed": "node db/seed.js"
+    "seed": "node db/seed.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +20,14 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.0",
     "sequelize": "^6.6.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachel-brain/super-duper-bassoon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rachel-brain/super-duper-bassoon/issues"
+  },
+  "homepage": "https://github.com/rachel-brain/super-duper-bassoon#readme"
 }
