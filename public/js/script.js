@@ -20,7 +20,7 @@ const playerSprite = new Image();
 playerSprite.src = "./assets/Mage1/character1.png";
 
 const background = new Image();
-background.src = "assets/backgroundTwo.png";
+background.src = "/assets/backgroundTwo.png";
 
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
