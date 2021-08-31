@@ -4,7 +4,7 @@
   "description": "Group 4 project #2 - details coming soon ...",
   "main": "server.js",
   "scripts": {
-    "start-server": "parcel src/index.html",
+    "start-server": "parcel src/index.html -p 3306",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
