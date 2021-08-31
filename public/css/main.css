@@ -1,0 +1,54 @@
+/* Color palette is SUNEATER sourced from https://www.color-hex.com/color-palette/113162 */
+
+:root {
+    --first: #323359;
+    --second: #f4d0b5;
+    --third: #bfb37f;
+    --fourth: #d9dbdf;
+    --fifth: #c06462;
+    --white: #fff;
+    --black: #000000;
+}
+
+body {
+    font-family: Arial;
+    margin: 10;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background-color: var(--first);
+}
+
+h1 {
+    font-size: 50px;
+    color: var(--fifth);
+}
+
+h2 {
+    font-size: 40px;
+    color: var(--second);
+}
+
+h3 {
+    font-size: 30px;
+    color: var(--third);
+}
+
+h4 {
+    font-size: 15px;
+    color: var(--fourth);
+}
+
+li {
+    font-size: 25px;
+    color: var(--black);
+}
+
+.button {
+    background-color: var(--second);
+    color: var(--black);
+    border: 2px solid var(--black);
+    padding: 10px;
+    border-radius: 7px
+}
