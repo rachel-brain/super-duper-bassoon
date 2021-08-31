@@ -1,0 +1,24 @@
+{
+  "name": "super-duper-bassoon",
+  "version": "1.0.0",
+  "description": "Group 4 project #2 - details coming soon ...",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachel-brain/super-duper-bassoon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rachel-brain/super-duper-bassoon/issues"
+  },
+  "homepage": "https://github.com/rachel-brain/super-duper-bassoon#readme",
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
