@@ -4,10 +4,6 @@
   "description": "server.js",
   "main": "server.js",
   "scripts": {
-<<<<<<< HEAD
-    "start-server": "parcel src/index.html -p 3306",
-=======
->>>>>>> main
     "test": "echo \"Error: no test specified\" && exit 1",
     "initdb": "node db/initDB.js",
     "seed": "node db/seed.js"
