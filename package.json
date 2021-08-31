@@ -1,25 +1,27 @@
 {
-  "name": "super-duper-bassoon",
+  "name": "example",
   "version": "1.0.0",
-  "description": "Group 4 project #2 - details coming soon ...",
+  "description": "server.js",
   "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start-server": "parcel src/index.html -p 3306",
+=======
+>>>>>>> main
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rachel-brain/super-duper-bassoon.git"
+    "initdb": "node db/initDB.js",
+    "seed": "node db/seed.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rachel-brain/super-duper-bassoon/issues"
-  },
-  "homepage": "https://github.com/rachel-brain/super-duper-bassoon#readme",
   "dependencies": {
-    "parcel-bundler": "^1.12.5",
-    "phaser": "^3.55.2"
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
   }
 }

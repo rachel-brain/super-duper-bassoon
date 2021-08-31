@@ -1,47 +1,57 @@
-// THIS CODE WILL NEED CHECKING & MODIFYING!
+require('dotenv').config()
 
-const path = require('path');
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+//require and start express and handlebars
+const express = require('express')
+const app = express()
+var exphbs = require('express-handlebars');
 
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-const helpers = require('./utils/helpers');
-
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-const sess = {
-    secret: 'Super secret secret',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize,
-    }),
-};
-
-app.use(session(sess));
-
-const hbs = exphbs.create({
-    helpers
-});
-
-app.engine('handlebars', hbs.engine);
+//Handlebars Setup
+app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
+const db = require('./clients/db')
+const user = require('./models/user');
+const models = require('./models');
+
+
+//middleware for parsing JSON and urlencoded form data
 app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({extended: true}))
 
-app.use(routes);
+//enable the environment to specify a port, or use the default port. BC heruoku will generate a random port and use that.
+const PORT = process.env.PORT || 8080;
+ 
 
-sequelize.sync({
-    force: false
-}).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+//Routes
+//Homepage
+app.get('/', (req, res) => {
+  res.render('home');
+});
+
+//Profile Page
+app.get('/profile', (req,res) => {
+    res.render('profile');
+})
+
+//Gamepage
+app.get('/Gamepage', (req,res) => {
+    res.render('gamepage');
+})
+
+//Leaderboards
+app.get('/Leaderboards', (req,res) => {
+    res.render('leaderboards');
+})
+
+//When /api/users is requested, we return a json of all the user data
+app.get('/api/users', async (req,res) => {
+    const usersRAW = await user.findAll();
+    const users = usersRaw.map(rawUser => rawUser.get());
+    res.json(users);
+});
+ 
+//Connect to sequelize first, and then finally start the web server
+db.sync().then(() => {
+    app.listen(PORT);
+    console.log('listening on port 8080')
 });
