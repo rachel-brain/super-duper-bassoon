@@ -4,6 +4,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 var exphbs = require('express-handlebars');
+const path = require('path');
 
 //Handlebars Setup
 app.engine('handlebars', exphbs());
@@ -42,6 +43,12 @@ app.get('/Gamepage', (req,res) => {
 app.get('/Leaderboards', (req,res) => {
     res.render('leaderboards');
 })
+
+//Load GamePage
+app.use(express.static('public'));
+
+// app.use(express.static(path.join(__dirname, '/src')));
+
 
 //When /api/users is requested, we return a json of all the user data
 app.get('/api/users', async (req,res) => {
