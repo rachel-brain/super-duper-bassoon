@@ -1,0 +1,42 @@
+<!-- DRAFT FOR GAME PAGE -->
+
+<div class="row">
+    <div class="player-card">
+    <h2>{{playername}}</h2>
+    <p>Player's health bar</p>
+    <img {{player-avatar}}>
+        <div class="row">
+            <div class="answers-card">
+                <form id="word-form1" method="POST">
+                <label for="word-text1">Add a Word: </label>
+                <input type="text" placeholder="" name="word-text1" id="word-text1" />
+                </form>
+
+                <p>Word Count: <span id="word-count1">0</span></p>
+                <ul id="word-list1"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="opponent-card">
+    <h2>{{opponentname}}</h2>
+    <p>Opponent's health bar</p>
+    <img {{opponent-avatar}}>
+       <div class="row">
+            <div class="answers-card">
+                <form id="word-form2" method="POST">
+                <label for="word-text2">Add a Word: </label>
+                <input type="text" placeholder="" name="word-text2" id="word-text2" />
+                </form>
+
+                <p>Word Count: <span id="word-count">0</span></p>
+                <ul id="word-list2"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./public/js/login.js"></script>
+<script src="./public/js/script.js"></script>
