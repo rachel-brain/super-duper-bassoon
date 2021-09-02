@@ -10,9 +10,9 @@ Mustafa Abdelrahman, Rachel Brain, Suva Pokharel & David Szamek
 ## User Story
 
 ```md
-AS A 
-I WANT 
-SO THAT 
+AS AN avid gamer who thrives on competition and fast-paced activities
+I WANT a CMS-style game which allows me to compete under time pressure as a wizard to make my enemies disappear as fast as I can
+SO THAT I can unwind after a long day of coding and have some fun!
 ```
 
 ## Acceptance Criteria
@@ -38,35 +38,36 @@ THEN
 
 
 ## Description
-
+A game against the clock where a player takes on the guise of a wizard to make their enemies vanish with the high scores of winning wizards added to a leader board page.
 
 ## Installation
 The application will be invoked by typing the following commands in the terminal to install the software required:
 
 ```bash
 npm install
-npm install dotenv
-npm install --save sequelize
-npm install --save mysql2
-npm install express
-npm install express-handlebars
-npm install bcrypt
-npm run seed
 npm start
 ```
 
-The game will be played on the Heroku webpage in your prefered browser to see the rules page of the game & press the START button when ready to play.
+The application uses:
+- bcrypt
+- dotenv
+- express
+- express-handlebars
+- mysql2
+- sequelize
 
-## Mock-Up
+
+The game will be played on the Heroku webpage in the player's prefered browser to log in or register &, then they will see the rules page of the game.  The player presses the START button when ready to play.
+
+
 
 
 ## Screenshot
 
 
-## License
-The MIT License has been applied which can be seen in the source file at (LICENSE.txt).
 
 ## Heroku URL
 
 
 ## GitHub Repo URL
+https://github.com/rachel-brain/super-duper-bassoon

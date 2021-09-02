@@ -1,8 +1,8 @@
 #parentNavbarContainer {
     display:flex;
     justify-content: center;
+/* Color palette is SUNEATER sourced from https://www.color-hex.com/color-palette/113162 */
 }
-
 #wizardWipeout {
     padding-top: 1%;
 } 
