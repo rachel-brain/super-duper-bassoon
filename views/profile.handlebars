@@ -1,1 +1,10 @@
-<p>profile</p>
+<img src=".public/css/images/profile.png">
+
+{{#each games as |game| }}
+<div class="card">
+      <h2>{{user.name}} 's profile:</h2>
+           {{game}} {{score}}
+</div>
+
+<script src=".public/js/winnerscript.js"></script>
+{{/each}}

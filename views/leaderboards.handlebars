@@ -1,1 +1,10 @@
-<p>leaderboards</p>
+<img src=".public/css/images/leaderboards.png">
+
+{{#each users as |user| }}
+<div class="card">
+      <h2>Winning Wizards:</h2>
+          {{user.score}} {{user.name}}
+</div>
+
+<script src=".public/js/winnerscript.js"></script>
+{{/each}}

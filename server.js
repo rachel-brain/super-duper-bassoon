@@ -6,6 +6,8 @@ const app = express()
 var exphbs = require('express-handlebars');
 const path = require('path');
 
+const validator = require("email-validator");
+app.use(validator);
 //Handlebars Setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -13,6 +15,7 @@ app.set('view engine', 'handlebars');
 const db = require('./clients/db')
 const user = require('./models/user');
 const models = require('./models');
+const { addHook } = require('./models/user');
 
 
 //middleware for parsing JSON and urlencoded form data
@@ -24,6 +27,16 @@ const PORT = process.env.PORT || 8080;
  
 
 //Routes
+
+//Validator
+app.post('/emailValidation', (req,res) => {
+    let email = req.body.email;
+    let isEmailValid = validator(email);
+    res.json({
+        isEmailValid: isEmailValid
+    })
+})
+
 //Homepage
 app.get('/', (req, res) => {
   res.render('home');
@@ -62,3 +75,4 @@ db.sync().then(() => {
     app.listen(PORT);
     console.log('listening on port 8080')
 });
+
