@@ -1,1 +1,54 @@
-<p>home</p>
+<div class="loginButtonDiv nes-container is-rounded is-dark">
+
+    <!-- Welcome Buttons -->
+    <div id="welcomeDiv" class="loginSignupDiv">
+        <h1 class=>Welcome!</h1>
+        <button onclick="showLogin(loginDiv,welcomeDiv)" type="button"
+            class="welcomeButtons nes-btn is-warning">Login</button>
+        <button onclick="showSignup(signupDiv,welcomeDiv)" type="button"
+            class="welcomeButtons nes-btn is-warning">Signup</button>
+    </div>
+
+    <!-- Signup -->
+    <div id="signupDiv" class="hidden">
+        <div id = "emailInputDiv" class="nes-field">
+            <label> E-mail</label>
+            <input id="emailInput" type="text" id="name_field" class="nes-input is-error">
+        </div>
+
+        <div id = "userPasswordInputDiv">
+            <div class="nes-field">
+                <label> Username</label>
+                <input id = "sUsername" type="text" id="name_field" class="nes-input is-error">
+            </div>
+            <div class="nes-field">
+                <label> Password</label>
+                <input id = "sPassword" type="text" id="name_field" class="nes-input is-error">
+            </div>
+            <div class="signupButtonContainer">
+                <button onclick="hideSignup(signupDiv,welcomeDiv)" type="button"
+                    class="signupBack nes-btn is-warning">Back</button>
+                <button id="signupSubmit" type="button" class="submitLoginBtn nes-btn is-disabled">Submit</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- login -->
+    <div id="loginDiv" class="hidden">
+        <div class="nes-field">
+            <label> Username</label>
+            <input type="text" id="name_field" class="nes-input is-error">
+        </div>
+        <div class="nes-field">
+            <label> Password</label>
+            <input type="text" id="name_field" class="nes-input is-error">
+        </div>
+        <button onclick="hideLogin(loginDiv,welcomeDiv)" type="button"
+            class="signupBack nes-btn is-warning">Back</button>
+    </div>
+
+</div>
+
+<script src="/js/homeScripts.js"></script>
