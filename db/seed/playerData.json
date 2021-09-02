@@ -1,5 +1,5 @@
 [{
-        "name": "Merlin",
+        "name": "merlin",
         "email": "john.smith@hotmail.com",
         "password": "abracadabra"
     },
@@ -9,7 +9,7 @@
         "password": "hocuspocus"
     },
     {
-        "name": "Dumbledore",
+        "name": "dumbledore",
         "email": "jane.doe@gmail.com",
         "password": "heypresto"
     },

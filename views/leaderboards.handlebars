@@ -1,8 +1,10 @@
 <img src=".public/css/images/leaderboards.png">
 
+{{#each users as |user| }}
 <div class="card">
       <h2>Winning Wizards:</h2>
-          {{{score}}} {{{name}}}
+          {{user.score}} {{user.name}}
 </div>
 
 <script src=".public/js/winnerscript.js"></script>
+{{/each}}
