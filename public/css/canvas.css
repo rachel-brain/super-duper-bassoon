@@ -1,6 +1,6 @@
 #canvas {
-    width: 800px;
-    height: 500px;
+    width: 70%;
+    height: auto;
     border: 1px solid black;
     /* position: absolute; */
     top: 50%;
