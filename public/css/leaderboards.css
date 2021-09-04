@@ -1,0 +1,23 @@
+.message-list {
+    display:flex;
+    flex-direction: column;
+}
+
+.messages 
+
+.leaderboardsDiv {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.slime {
+    width:100px;
+    height:auto;
+}
+
+.slimeRed {
+    filter:hue-rotate(180deg);
+    width:100px;
+    height:auto;
+}
