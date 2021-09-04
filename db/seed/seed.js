@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const playerData = require('./plaeryData.json');
+const playerData = require('./playerData.json');
 //const scoreData = require('./score'); //leaderboard or score
 
 const seedAll = async () => {
