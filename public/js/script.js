@@ -80,74 +80,93 @@ function handlePlayerFrame(){
     else player.frameX = 0;
 };
 
-// function animate() {
+// Add score 
+function drawScore() {
+    ctx.font = "14px Impact";
+    ctx.fillStyle = "black";
+    ctx.fillText("Score: "+ score, 8, 20);
+  }
 
-//     ctx.clearRect(0,0,canvas.width, canvas.height);
+let timeToNextVillager = 0;
+let villagerInterval = 1000;
+let lastTime = 0;
 
-//     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-//     drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, (player.width / 2), (player.height / 2));
-
-//     movePlayer();
-
-//     handlePlayerFrame();
-
-//     requestAnimationFrame(animate);
-// }
-// animate();
-
-// Gloabl varials for animation and fps
-
-let fps, fpsInterval, startTime, now, then, elapsed; 
-
-function startAnimating(fps){
-    // fpsInterval is found using 1 second (1000milliseconds)
-    fpsInterval = 1000/fps;
-    then = Date.now();
-    startTime = then;
-    animate();
-};
-
-function animate(){
-    requestAnimationFrame(animate);
-    now = Date.now();
-    elapsed = now - then;
-    if (elapsed > fpsInterval){
-        then = now - (elapsed % fpsInterval);
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-
-        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-
-        drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, (player.width / 2), (player.height / 2));
-
-        Villager.update();
-        Villager.draw();
-
-        movePlayer();
-
-        handlePlayerFrame();
-    };
-};
 
 let villagers = [];
+
 class villager {
     constructor(){
-        this.width = 100;
-        this.height = 50;
+        this.spriteWidth = 32;
+        this.spriteHeight = 48;
+        this.sizeModifier = Math.random() * 0.6 + 0.4;
+        this.width = this.spriteWidth * this.sizeModifier;
+        this.height = this.spriteHeight * this.sizeModifier;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
-        this.directionX = Math.random() * 5 + 3;
-        this.directionY = Math.random() * 5 - 2.5;
+        this.directionX = Math.random() * 1 + 1;
+        this.directionY = Math.random() * 3 - 2.5;
+        this.markedForDeletion = false;
+        this.image = new Image();
+        this.image.src = "/assets/monsters/blacksmith.png";
+        this.frameX = 0;
+        this.frameY = 1;
+        this.frame = 0;
+        this.maxFrame = 2;
+        this.timeSinceStep = 0;
+        this.stepInterval = Math.random() * 100 + 100;
     };
-    update(){
+    update(deltatime){
+        if (this.y < 0 || this.y > canvas.height - this.height){
+            this.directionY = this.directionY * -1;
+        }
         this.x -= this.directionX;
+        this.y += this.directionY;
+        if (this.x < 0 - this.width) this.markedForDeletion = true;
+        this.timeSinceStep += deltatime;
+        if (this.timeSinceStep > this.stepInterval){
+            if (this.frame > this.maxFrame) this.frame = 0;
+            else this.frame++;
+            this.timeSinceStep = 0;
+        };
     };
     draw(){
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        // ctx.strokeRect(this.x, this.y, this.width, this.height);
+        ctx.drawImage(this.image, this.frame * this.spriteWidth, this.spriteHeight * this.frameY, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
     };
 };
 
 const Villager = new villager();
 
 // starts animation
-startAnimating(30);
+// startAnimating(20);
+
+function animate(timestamp){
+    ctx.clearRect(0,0,canvas.width, canvas.height);
+
+    ctx.drawImage(background, 0, 2, canvas.width, canvas.height);
+
+    drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, (player.width / 2), (player.height / 2));
+
+    Villager.update();
+    Villager.draw();
+
+    drawScore(score++);
+
+    movePlayer();
+
+    handlePlayerFrame();
+
+    let deltatime = timestamp - lastTime;
+    lastTime = timestamp;
+    timeToNextVillager += deltatime;
+    if (timeToNextVillager > villagerInterval){
+        villagers.push(new villager());
+        timeToNextVillager = 0;
+    };
+    [...villagers].forEach(object => object.update(deltatime));
+    [...villagers].forEach(object => object.draw());
+    villagers = villagers.filter(object => !object.markedForDeletion);
+    requestAnimationFrame(animate);
+};
+
+animate(0);
