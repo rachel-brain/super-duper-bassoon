@@ -120,24 +120,34 @@ function animate(){
 
         drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, (player.width / 2), (player.height / 2));
 
+        Villager.update();
+        Villager.draw();
+
         movePlayer();
 
         handlePlayerFrame();
-
     };
 };
 
 let villagers = [];
-class villagers {
+class villager {
     constructor(){
         this.width = 100;
         this.height = 50;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
         this.directionX = Math.random() * 5 + 3;
+        this.directionY = Math.random() * 5 - 2.5;
     };
-
+    update(){
+        this.x -= this.directionX;
+    };
+    draw(){
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    };
 };
 
+const Villager = new villager();
+
 // starts animation
-startAnimating(10);
+startAnimating(30);
