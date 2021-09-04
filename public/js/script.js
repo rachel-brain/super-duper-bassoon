@@ -159,6 +159,7 @@ function animate(timestamp){
     let deltatime = timestamp - lastTime;
     lastTime = timestamp;
     timeToNextVillager += deltatime;
+    console.log(deltatime);
     if (timeToNextVillager > villagerInterval){
         villagers.push(new villager());
         timeToNextVillager = 0;
