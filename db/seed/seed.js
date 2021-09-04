@@ -1,4 +1,4 @@
-const sequelize = require('../config/connection');
+const sequelize = require('.../clients/db');
 const playerData = require('./playerData.json');
 //const scoreData = require('./score'); //leaderboard or score
 
