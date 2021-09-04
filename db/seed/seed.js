@@ -1,13 +1,14 @@
-const sequelize = require('.../clients/db');
-const playerData = require('./playerData.json');
-//const scoreData = require('./score'); //leaderboard or score
+const sequelize = require('../../clients/db');
+const { User } = require('../../models')
+const userData = require('./playerData.json'); 
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
-
-  await seedPlayerData();
-
- 
+  const users = await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning:true,
+  });
+  
   process.exit(0);
 };
 
