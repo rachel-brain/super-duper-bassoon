@@ -143,9 +143,9 @@ greenEmailInput = function () {
 signupFormHandler = async function() {
     // e.preventDefault();
   
-    const name = document.querySelector('#sUsername').value.trim();
-    const email = document.querySelector('#emailInput').value.trim();
-    const password = document.querySelector('#sPassword').value.trim();
+    const name = document.getElementById('sUsername').value.trim();
+    const email = document.getElementById('emailInput').value.trim();
+    const password = document.getElementById('sPassword').value.trim();
     console.log('test');
     if (name && email && password) {
         console.log('everything ok');
@@ -160,6 +160,26 @@ signupFormHandler = async function() {
       } else {
         alert(response.statusText);
       }
-      console.log('codeblockworking');
     }
   };
+
+loginFormHandler = async function() {
+    // event.preventDefault();
+    const email = document.getElementById('lUsername').value.trim();
+    const password = document.getElementById('lPassword').value.trim();
+    console.log('test');
+
+    if (email && password) {
+        const response = await fetch('/api/homepageR/login', {
+            method: 'POST',
+            body: JSON.stringify({email,password}),
+            headers: {'Content-Type': 'application/json'},
+        });
+
+        if (response.ok) {
+            document.location.replace('/profile');
+        }else {
+            alert(response.statusText);
+        }
+    }
+}

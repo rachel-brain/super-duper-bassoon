@@ -40,14 +40,19 @@
     <div id="loginDiv" class="hidden">
         <div class="nes-field">
             <label> Username</label>
-            <input type="text" id="name_field" class="nes-input is-error">
+            <input id="lUsername" type="text" id="name_field" class="nes-input is-error">
         </div>
         <div class="nes-field">
             <label> Password</label>
-            <input type="text" id="name_field" class="nes-input is-error">
+            <input id="lPassword" type="text" id="name_field" class="nes-input is-error">
         </div>
-        <button onclick="hideLogin(loginDiv,welcomeDiv)" type="button"
+        <div>
+            
+        </div>
+        <button onclick="hideLogin(loginDiv,welcomeDiv) " type="button"
             class="signupBack nes-btn is-warning">Back</button>
+        <button onclick="loginFormHandler() " type="button"
+            class="signupBack nes-btn is-warning">Login</button>
     </div>
 
 </div>
