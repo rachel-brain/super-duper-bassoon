@@ -1,15 +1,17 @@
 require('dotenv').config()
-
+const sequelize = require('./config/connection');
 //require and start express and handlebars
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 var exphbs = require('express-handlebars');
 const path = require('path');
 
+//routes folder
+const routes = require('./controllers');
+app.use(routes);
 
-
-//const validator = require("email-validator");
-//app.use(validator);
+// const validator = require("email-validator");
+// app.use(validator);
 
 //Handlebars Setup
 app.engine('handlebars', exphbs());
@@ -33,7 +35,6 @@ app.use(express.urlencoded({
 const PORT = process.env.PORT || 8080;
 
 
-//Routes
 
 //Validator
 app.post('/emailValidation', (req, res) => {
