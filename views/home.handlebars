@@ -11,24 +11,25 @@
 
     <!-- Signup -->
     <div id="signupDiv" class="hidden">
-        <div id = "emailInputDiv" class="nes-field">
+        <div id="emailInputDiv" class="nes-field">
             <label> E-mail</label>
             <input id="emailInput" type="text" id="name_field" class="nes-input is-error">
         </div>
 
-        <div id = "userPasswordInputDiv">
+        <div id="userPasswordInputDiv">
             <div class="nes-field">
                 <label> Username</label>
-                <input id = "sUsername" type="text" id="name_field" class="nes-input is-error">
+                <input id="sUsername" type="text" id="name_field" class="nes-input is-error">
             </div>
             <div class="nes-field">
                 <label> Password</label>
-                <input id = "sPassword" type="text" id="name_field" class="nes-input is-error">
+                <input id="sPassword" type="text" id="name_field" class="nes-input is-error">
             </div>
             <div class="signupButtonContainer">
                 <button onclick="hideSignup(signupDiv,welcomeDiv)" type="button"
                     class="signupBack nes-btn is-warning">Back</button>
-                <button id="signupSubmit" type="button" class="submitLoginBtn nes-btn is-disabled">Submit</button>
+                <button onclick="submitSignupInput()" id="signupSubmit" type="button"
+                    class="submitLoginBtn nes-btn is-disabled">Submit</button>
             </div>
 
         </div>
@@ -52,3 +53,5 @@
 </div>
 
 <script src="/js/homeScripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
