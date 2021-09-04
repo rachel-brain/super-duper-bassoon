@@ -99,6 +99,21 @@ checkSignupInput = function(signupInputsValid,signupSubmit) {
     console.log('test');
 }
 
+submitSignupInput = function() {
+    if(signupSubmit.classList.contains('is-warning')) {
+        signupFormHandler();
+
+    }
+    else {
+        for(i=0;i<inputFields.length;i++) {
+            // inputFields[i].classList.remove('shake');
+            inputFields[i].classList.toggle('shake');
+            // inputFields[i].classList.add('shake');
+            console.log('this is working');
+        }
+    }
+}
+
 //Listen to login and change colors of input boxes accordingly
 loginDiv.addEventListener('input', updateValueLogin);
 function updateValueLogin(e) {
@@ -124,3 +139,47 @@ greenEmailInput = function () {
     emailInput.classList.add('is-success');
 }
 
+
+signupFormHandler = async function() {
+    // e.preventDefault();
+  
+    const name = document.getElementById('sUsername').value.trim();
+    const email = document.getElementById('emailInput').value.trim();
+    const password = document.getElementById('sPassword').value.trim();
+    console.log('test');
+    if (name && email && password) {
+        console.log('everything ok');
+      const response = await fetch('/api/homepageR/:newUser', {
+        method: 'POST',
+        body: JSON.stringify({ name, email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert(response.statusText);
+      }
+    }
+  };
+
+loginFormHandler = async function() {
+    // event.preventDefault();
+    const email = document.getElementById('lUsername').value.trim();
+    const password = document.getElementById('lPassword').value.trim();
+    console.log('test');
+
+    if (email && password) {
+        const response = await fetch('/api/homepageR/login', {
+            method: 'POST',
+            body: JSON.stringify({email,password}),
+            headers: {'Content-Type': 'application/json'},
+        });
+
+        if (response.ok) {
+            document.location.replace('/profile');
+        }else {
+            alert(response.statusText);
+        }
+    }
+}

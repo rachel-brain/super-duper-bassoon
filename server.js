@@ -1,15 +1,27 @@
 require('dotenv').config()
-
+const sequelize = require('./config/connection');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+var bodyParser = require('body-parser');
 //require and start express and handlebars
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 var exphbs = require('express-handlebars');
 const path = require('path');
 
 
+//middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}))
 
-//const validator = require("email-validator");
-//app.use(validator);
+//routes folder
+const routes = require('./controllers');
+app.use(routes);
+
+// const validator = require("email-validator");
+// app.use(validator);
 
 //Handlebars Setup
 app.engine('handlebars', exphbs());
@@ -22,18 +34,10 @@ const {
     addHook
 } = require('./models/user');
 
-
-//middleware for parsing JSON and urlencoded form data
-app.use(express.json());
-app.use(express.urlencoded({
-    extended: true
-}))
-
 //enable the environment to specify a port, or use the default port. BC heruoku will generate a random port and use that.
 const PORT = process.env.PORT || 8080;
 
 
-//Routes
 
 //Validator
 app.post('/emailValidation', (req, res) => {
@@ -82,3 +86,16 @@ db.sync().then(() => {
     app.listen(PORT);
     console.log('listening on port 8080')
 });
+
+//session
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: db
+    })
+  };
+
+  app.use(session(sess));
