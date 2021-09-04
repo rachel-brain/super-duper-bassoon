@@ -1,31 +1,37 @@
 [{
         "name": "merlin",
         "email": "john.smith@hotmail.com",
-        "password": "abracadabra"
+        "password": "abracadabra",
+        "highscore": 85
     },
     {
         "name": "Gandolf",
         "email": "joe.blogs@gmail.com",
-        "password": "hocuspocus"
+        "password": "hocuspocus",
+        "highscore": 82
     },
     {
         "name": "dumbledore",
         "email": "jane.doe@gmail.com",
-        "password": "heypresto"
+        "password": "heypresto",
+        "highscore": 80
     },
     {
         "name": "Yoda",
         "email": "jordana99@hotmail.com",
-        "password": "magicitismagic"
+        "password": "magicitismagic",
+        "highscore": 79
     },
     {
         "name": "Harry",
         "email": "harry.potter@yahoo.com",
-        "password": "opensesame"
+        "password": "opensesame",
+        "highscore": 76
     },
     {
         "name": "thegoodwitch",
         "email": "maria2001@yahoo.com",
-        "password": "shazam"
+        "password": "shazam",
+        "highscore": 75
     }
 ]
