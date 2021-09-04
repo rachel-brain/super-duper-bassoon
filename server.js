@@ -6,8 +6,10 @@ const app = express()
 var exphbs = require('express-handlebars');
 const path = require('path');
 
+
 //const validator = require("email-validator");
 //app.use(validator);
+
 //Handlebars Setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
