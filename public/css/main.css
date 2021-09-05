@@ -1,3 +1,14 @@
+/* Color palette is SUNEATER sourced from https://www.color-hex.com/color-palette/113162 */
+:root {
+    --first: #323359;
+    --second: #f4d0b5;
+    --third: #bfb37f;
+    --fourth: #d9dbdf;
+    --fifth: #c06462;
+    --white: #fff;
+    --black: #000000;
+}
+
 #parentNavbarContainer {
     display: flex;
     justify-content: center;
@@ -21,13 +32,13 @@ footer {
 
 /* this will be in the login css */
 .loginButtonDiv {
-    margin-top:50%;
+    margin-top: 50%;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
     /* width:70vw; */
-    margin:auto;
+    margin: auto;
 }
 
 .loginSignupDiv {
@@ -67,31 +78,38 @@ h4 {
     color: whitesmoke;
     background-color: rgb(49, 49, 49);
 }
- .hidden {
-     display:none;
- }
 
- .shake {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+.hidden {
+    display: none;
+}
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
- }
+}
 
- @keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
     }
-    
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
     }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
     }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
     }
-  }
+}
