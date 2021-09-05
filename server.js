@@ -11,6 +11,8 @@ const path = require('path');
 
 
 //middleware for parsing JSON and urlencoded form data
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
