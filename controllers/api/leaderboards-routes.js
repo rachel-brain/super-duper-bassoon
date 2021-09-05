@@ -6,7 +6,7 @@ const router = require('express').Router();
 //a json object of all the users in the database is returned
 router.get('/:users', (req,res) => {
     User.findAll({
-        attributes: ['id','name','email','password']
+        attributes: ['id','name','email','password','highscore']
     })
     .then(dbUsers => res.json(dbUsers))
     .catch(err => {
