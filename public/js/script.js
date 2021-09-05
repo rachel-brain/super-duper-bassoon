@@ -130,7 +130,6 @@ class villager {
         };
     };
     draw(){
-        // ctx.strokeRect(this.x, this.y, this.width, this.height);
         ctx.drawImage(this.image, this.frame * this.spriteWidth, this.spriteHeight * this.frameY, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
     };
 };
@@ -149,7 +148,8 @@ function animate(timestamp){
 
     Villager.update();
     Villager.draw();
-
+    handleCollisions();
+    if (handleCollisions()) return;
     drawScore(score++);
 
     movePlayer();
@@ -170,3 +170,32 @@ function animate(timestamp){
 };
 
 animate(0);
+
+// Collisions
+
+const bang = new Image();
+bang.src = "/assets/bomb2.png";
+function handleCollisions(){
+    for (let i = 0; i < villagers.length; i++){
+        if (player.x < villagers[i].x + villagers[i].width/2 &&
+            player.x + player.width/2 > villagers[i].x &&
+            player.y < villagers[i].y + villagers[i].height/2 &&
+            player.height/2 + player.y > villagers[i].y) {
+                //Collision detected!
+                ctx.drawImage(bang, player.x, player.y, 25, 25);
+                ctx.font = "15px Georgia";
+                ctx.fillStyle = 'black';
+                ctx.fillText('Game Over, your score is ' + score, 60, canvas.height/2 - 5);
+                return true;
+            };
+    };
+};
+
+// let explosions = [];
+// class Explosions {
+//     constructor(x, y, size){
+//         this.image = new Image();
+//         this.image.src = "/assets/bomb.png";
+//         this.bombWidth = 
+//     }
+// }
