@@ -15,16 +15,4 @@ router.get('/users', (req,res) => {
         res.status(500).json(err);
     })
 });
-
-// router.get('/:userHighscores', (req,res) => {
-//     User.findAll({
-//         attributes: ['name','highscore']
-//     })
-//     .then(dbUsers => res.json(dbUsers))
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })
-// });
-
 module.exports = router;

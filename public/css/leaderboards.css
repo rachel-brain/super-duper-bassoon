@@ -1,6 +1,8 @@
 .message-list {
     display:flex;
     flex-direction: column;
+    border-left: solid 5px whitesmoke;
+    padding-left: 50px;
 }
 
 .leaderboardsTable {
@@ -19,12 +21,13 @@
     filter:hue-rotate(180deg);
     width:100px;
     height:auto;
+    transform: scaleX(-1);
 }
 
 .messages {
     margin-right: auto;
     margin-left: auto;
-    width: 600px;px;
+    width: 600px;
 }
 
 .-left {
@@ -33,4 +36,22 @@
 
 .-right {
     text-align: right;
+}
+
+#leaderboardsParent {
+    display:flex;
+    flex-direction: row;
+    width:min-content;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.star {
+    width:80px;
+    display:inline-block;
+}
+
+.tfuHeading {
+    display:inline;
+    font-size: x-large;
 }

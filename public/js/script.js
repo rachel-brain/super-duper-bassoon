@@ -185,7 +185,23 @@ function handleCollisions(){
                 ctx.font = "15px Georgia";
                 ctx.fillStyle = 'black';
                 ctx.fillText('Game Over, your score is ' + score, 60, canvas.height/2 - 5);
+                highscoreSubmitHandler(score);
                 return true;
             };
     };
 };
+
+highscoreSubmitHandler = async function(score) {
+    var highscore = score;
+    const response = await fetch('/api/gamepageR/updatehighscore', {
+        method: 'PUT',
+        body: JSON.stringify({highscore}),
+        headers: {'Content-Type': 'application/json'},
+    });
+    if (response.ok) {
+        console.log('highscore submitted');
+    }
+    else {
+        alert(response.statusText);
+    }
+}

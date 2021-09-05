@@ -7,47 +7,57 @@
     <span class="title"><i class="nes-icon trophy is-small"></i>Leaderboards</span>
 
     <!-- Balloon 'is-dark'  -->
-    <div class="messages">
-        <section class="message-list">
-            <section class="message -left">
-                <img class="slime" src="/images/slime gif.gif" />
-                <!-- Balloon -->
-                <div class="nes-balloon from-left is-dark">
-                    <p>"Winner winner <br>chicken dinn..."</p>
-                </div>
-            </section>
 
-            <section class="message -right">
-                <!-- Balloon -->
-                <div class="nes-balloon from-right is-dark">
-                    <p>"PUBG already copyrighted <br> that saying Carl..."</p>
-                </div>
-                <img class="slimeRed" src="/images/slime gif.gif" />
-            </section>
+    <div id="leaderboardsParent">
+        <div class="leaderboardsTable nes-table-responsive">
+            <div>
+                <img class = "star" src="\images\spinning star (2).gif" />
+                <h2 class = "tfuHeading">Top Five Users</h2>
+                <img class = "star" src="\images\spinning star (2).gif" />
+            </div>
 
-            <section class="message -left">
-                <img class="slime" src="/images/slime gif.gif" />
-                <!-- Balloon -->
-                <div class="nes-balloon from-left is-dark">
-                    <p>"Oh..."</p>
-                </div>
-            </section>
-        </section>
-    </div>
-
-    <div class="leaderboardsTable nes-table-responsive">
-        <table class="nes-table is-bordered is-dark">
-            <thread>
-                <th>User</th>
-                <th>Score</th>
-            </thread>
+            <table class="nes-table is-bordered is-dark">
+                <thread>
+                    <th>User</th>
+                    <th>Score</th>
+                </thread>
                 {{#each topFiveUsersArray}}
-                    <tbody>
-                        <td>{{name}}</td>
-                        <td>{{highscore}}</td>
-                    </tbody>
+                <tbody>
+                    <td>{{name}}</td>
+                    <td>{{highscore}}</td>
+                </tbody>
                 {{/each}}
-        </table>
+            </table>
+        </div>
+
+        <div class="messages">
+            <section class="message-list">
+                <section class="message -left">
+                    <img class="slime" src="/images/slime gif.gif" />
+                    <!-- Balloon -->
+                    <div class="nes-balloon from-left is-dark">
+                        <p>"Winner winner <br>chicken dinn..."</p>
+                    </div>
+                </section>
+
+                <section class="message -right">
+                    <!-- Balloon -->
+                    <div class="nes-balloon from-right is-dark">
+                        <p>"PUBG already copyrighted <br> that saying Carl..."</p>
+                    </div>
+                    <img class="slimeRed" src="/images/slime gif.gif" />
+                </section>
+
+                <section class="message -left">
+                    <img class="slime" src="/images/slime gif.gif" />
+                    <!-- Balloon -->
+                    <div class="nes-balloon from-left is-dark">
+                        <p>"Oh..."</p>
+                    </div>
+                </section>
+            </section>
+        </div>
     </div>
+
 
 </div>
