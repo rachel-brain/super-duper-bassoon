@@ -1,4 +1,4 @@
-const {Model, DataTypes} = require('sequelize');
+const {Model, DataTypes, INTEGER} = require('sequelize');
 const sequelize = require('../clients/db')
 const bcrypt = require('bcrypt');
 
@@ -35,6 +35,11 @@ User.init(
         len: [8],
       },
     },
+    highscore: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue:0,
+    }
   },
   {
     hooks: {

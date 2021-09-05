@@ -3,9 +3,7 @@
     flex-direction: column;
 }
 
-.messages 
-
-.leaderboardsDiv {
+.leaderboardsTable {
     display:flex;
     flex-direction: column;
     justify-content: center;

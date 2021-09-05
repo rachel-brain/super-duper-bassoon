@@ -26,13 +26,14 @@ hideSignup = function (signupDiv,welcomeDiv) {
     signupDiv.classList.add("hidden");
     welcomeDiv.classList.remove("hidden");
     clearInputFields(inputFields);
-
+    removeShake(inputFields);
 }
 
 hideLogin = function (loginDiv,welcomeDiv) {
     loginDiv.classList.add("hidden");
     welcomeDiv.classList.remove("hidden");
     clearInputFields(inputFields);
+    removeShake(inputFields);
 }
 
 clearInputFields = function (inputFields) {
@@ -99,7 +100,14 @@ checkSignupInput = function(signupInputsValid,signupSubmit) {
     console.log('test');
 }
 
-submitSignupInput = function() {
+//remove shake class
+removeShake = function() {
+    for(i=0;i<inputFields.length;i++) {
+        inputFields[i].classList.remove('shake');
+    }
+}
+
+submitSignupInput = function(inputFields) {
     if(signupSubmit.classList.contains('is-warning')) {
         signupFormHandler();
 

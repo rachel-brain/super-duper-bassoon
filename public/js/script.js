@@ -91,7 +91,6 @@ let timeToNextVillager = 0;
 let villagerInterval = 1000;
 let lastTime = 0;
 
-
 let villagers = [];
 
 class villager {
@@ -190,12 +189,3 @@ function handleCollisions(){
             };
     };
 };
-
-// let explosions = [];
-// class Explosions {
-//     constructor(x, y, size){
-//         this.image = new Image();
-//         this.image.src = "/assets/bomb.png";
-//         this.bombWidth = 
-//     }
-// }

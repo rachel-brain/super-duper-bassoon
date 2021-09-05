@@ -27,8 +27,9 @@ WHEN I have chosen a wizard avatar and have finished reading the rules
 THEN I press the “Go!” button
 WHEN I press the “Go!” button
 THEN I am taken to the game page with a sixty-second countdown which begins immediately
-WHEN the enemies … 
-THEN I am able to control my avatar 
+WHEN the enemies approach 
+THEN I am able to control my avatar using the arrow keys
+
 WHEN this happens …  
 THEN I lose points ...
 WHEN this happens ...
@@ -77,7 +78,7 @@ The application uses:
 - sequelize
 
 
-The game will be played on the Heroku webpage in the player's prefered browser to log in or register &, then they will see the rules page of the game.  The player presses the START button when ready to play.
+The game will be played on the Heroku webpage in the player's prefered browser to log in or register &, then they will see the rules page of the game.  The player presses the "GO!" button when ready to play.
 
 
 
@@ -87,7 +88,7 @@ The game will be played on the Heroku webpage in the player's prefered browser t
 
 
 ## Heroku URL
-
+https://dry-beach-54923.herokuapp.com/
 
 ## GitHub Repo URL
 https://github.com/rachel-brain/super-duper-bassoon

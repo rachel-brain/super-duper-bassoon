@@ -3,8 +3,24 @@
 {{#each games as |game| }}
 <div class="card">
       <h2>{{user.name}} 's profile:</h2>
-           {{game}} {{score}}
+            {{highscore}}
+</div>
+{{/each}}
+
+<div class="row">
+    <div class="rules-card">
+        <h3>Rules:</h3>
+        <div class="list">
+            <ol>
+                <li>You will stay alive by avoiding the fast-moving sprites running at you randomly.</li>
+                <li>You avoid the sprites by moving your avatar using the arrow keys.</li>
+                <li>If you are hit by a sprite, the count stops and that is your final score.</li>
+                <li>You only get one “life”.</li>
+            </ol>
+            <h3>Are you ready?</h3>
+            <button class="button" type="go">Go!</button>
+        </div>
+    </div>
 </div>
 
 <script src=".public/js/winnerscript.js"></script>
-{{/each}}
