@@ -1,8 +1,10 @@
-<div class="loginButtonDiv nes-container is-rounded is-dark">
+<link rel="stylesheet" href="/css/login.css" />
+
+<div id = "loginCentering" class="loginButtonDiv nes-container is-rounded is-dark">
 
     <!-- Welcome Buttons -->
     <div id="welcomeDiv" class="loginSignupDiv">
-        <h1 class=>Welcome!</h1>
+        <h1 class= 'welcome'>Welcome!</h1>
         <button onclick="showLogin(loginDiv,welcomeDiv)" type="button"
             class="welcomeButtons nes-btn is-warning">Login</button>
         <button onclick="showSignup(signupDiv,welcomeDiv)" type="button"
@@ -51,12 +53,46 @@
         </div>
         <button onclick="hideLogin(loginDiv,welcomeDiv) " type="button"
             class="signupBack nes-btn is-warning">Back</button>
-        <button onclick="loginFormHandler() " type="button"
-            class="signupBack nes-btn is-warning">Login</button>
+        <button onclick="loginFormHandler() " type="button" class="signupBack nes-btn is-warning">Login</button>
     </div>
 
-</div>
+    <div class="slimeMessageDiv">
+        <section class="message -left">
+            <img onclick="animateCarl()" id="carl" class="slime" src="/images/slime gif.gif" />
+            <!-- Balloon -->
+            <div class="nes-balloon from-left is-dark">
+                <p id="errorMessage">"Hi i'm Carl"</p>
+            </div>
+        </section>
 
+
+    </div>
+</div>
+<script>
+    var carlHurt = ["Stop!", "That hurts!", "I know where you live", "Ouch!"]
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+    const rndInt = randomIntFromInterval(0, 3)
+    const carl = document.getElementById("carl");
+    const carlMessage = document.getElementById('errorMessage');
+
+    animateCarl = async function () {
+        const classAdd = await addCarlClass();
+    }
+
+    addCarlClass = async function () {
+        const classAdd = await carl.classList.toggle('carlGrayscale');
+        carlMessage.textContent = '"That hurts!"';
+        myVar = setTimeout(waitToRemove,1000);
+    }
+
+    waitToRemove = function() {
+        carlMessage.textContent = `"Hi I'm Carl"`;
+        carl.classList.remove('carlGrayscale');
+    }
+
+</script>
 <script src="/js/homeScripts.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

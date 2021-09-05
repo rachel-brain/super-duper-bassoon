@@ -1,5 +1,7 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/leaderboards.css" />
-
+<script src="/js/leaderboards.js"></script>
 
 <div id="leaderboardsDiv" class="nes-container is-rounded is-dark with-title is-centered">
     <span class="title"><i class="nes-icon trophy is-small"></i>Leaderboards</span>
@@ -23,7 +25,7 @@
                 <img class="slimeRed" src="/images/slime gif.gif" />
             </section>
 
-            <section class="message -right">
+            <section class="message -left">
                 <img class="slime" src="/images/slime gif.gif" />
                 <!-- Balloon -->
                 <div class="nes-balloon from-left is-dark">
@@ -39,18 +41,12 @@
                 <th>User</th>
                 <th>Score</th>
             </thread>
-            <tbody>
-                <td>"Put User Data Here</td>
-                <td>"P  </td>
-            </tbody>
-            <tbody>
-                <td>"Put User Data Here</td>
-                <td>"Put User Score Data Here</td>
-            </tbody>
-            <tbody>
-                <td>"Put User Data Here</td>
-                <td>"Put User Score Data Here</td>
-            </tbody>
+                {{#each topFiveUsersArray}}
+                    <tbody>
+                        <td>{{name}}</td>
+                        <td>{{highscore}}</td>
+                    </tbody>
+                {{/each}}
         </table>
     </div>
 

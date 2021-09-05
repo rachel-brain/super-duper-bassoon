@@ -8,10 +8,15 @@ const express = require('express');
 const app = express();
 var exphbs = require('express-handlebars');
 const path = require('path');
+const helpers = require('./utils/helpers');
+const { User } = require('./models');
+
+//set up handlebars with custom helpers
+const hbs = exphbs.create({ helpers });
 
 
 //middleware for parsing JSON and urlencoded form data
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -26,7 +31,7 @@ app.use(routes);
 // app.use(validator);
 
 //Handlebars Setup
-app.engine('handlebars', exphbs());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 const db = require('./clients/db')
@@ -65,10 +70,44 @@ app.get('/Gamepage', (req, res) => {
     res.render('gamepage');
 })
 
-//Leaderboards
-app.get('/Leaderboards', (req, res) => {
-    res.render('leaderboards');
+//About
+app.get('/about',(req,res) => {
+    res.render('about');
 })
+
+//Leaderboards
+app.get('/Leaderboards', async (req, res) => {
+    try {
+        const leaderboardData = await User.findAll({
+            attributes:['name','highscore']
+        })
+        var topFiveUsersArray = []
+        const highscoresUnsorted = leaderboardData.map((highscores) => highscores.get({plain:true}));
+        const highscoresSorted = sortArray(highscoresUnsorted);
+        topFiveUsers(highscoresSorted,topFiveUsersArray);
+        res.render('leaderboards', {
+            topFiveUsersArray
+        });
+    } catch(err) {
+        res.status(500).json(err);
+    }
+})
+
+//sort
+sortArray = function (highscores) {
+    return highscores.sort(function (a, b) {
+        return b.highscore - a.highscore;
+    });
+
+}
+
+//topfive
+topFiveUsers = function (highscoresSorted,topFiveUsersArray) {
+    for (i = 0; i < 5; i++) {
+        topFiveUsersArray.push(highscoresSorted[i]);
+    }
+
+}
 
 //Load GamePage
 app.use(express.static('public'));

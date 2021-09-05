@@ -1,19 +1,8 @@
-.message-list {
-    display:flex;
-    flex-direction: column;
-}
-
-.leaderboardsTable {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 600px;
-}
 .slime {
     width:100px;
     height:auto;
 }
+
 
 .slimeRed {
     filter:hue-rotate(180deg);
@@ -21,10 +10,15 @@
     height:auto;
 }
 
+.message-list {
+    display:flex;
+    flex-direction: column;
+}
+
 .messages {
     margin-right: auto;
     margin-left: auto;
-    width: 600px;px;
+    width: 600px;
 }
 
 .-left {
@@ -33,4 +27,12 @@
 
 .-right {
     text-align: right;
+}
+
+.backstory {
+    line-height: 50px;
+}
+button {
+    width:500px;
+    height:auto;
 }

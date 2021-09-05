@@ -4,9 +4,6 @@ const router = require('express').Router();
 
 //login
 router.post('/login', async (req, res) => {
-  console.log('poo');  
-  console.log('poo');
-  res.send('poo');
   try {
       const userData = await User.findOne({ where: { email: req.body.email } });
       console.log(userData);
@@ -39,8 +36,7 @@ router.post('/login', async (req, res) => {
     }
   });
 
-router.post('/:newUser', async (req, res) => {
-  console.log('poo');  
+router.post('/newUser', async (req, res) => { 
   try {
         const userData = await User.create(req.body);
 
@@ -54,11 +50,5 @@ router.post('/:newUser', async (req, res) => {
         res.status(400).json(err);
     }
 });
-
-router.post('/test', async (req,res) => {
-  const userData = await User.findOne({where: {email: req.body.email}})
-  return (userData);
-})
-
 
 module.exports = router;

@@ -30,15 +30,17 @@ footer {
     align-items: center;
 }
 
-/* this will be in the login css */
 .loginButtonDiv {
-    margin-top: 50%;
+
     display: flex;
-    flex-direction: column;
-    justify-content: left;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    /* width:70vw; */
-    margin: auto;
+
+    width:70vw;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .loginSignupDiv {

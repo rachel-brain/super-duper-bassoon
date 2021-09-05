@@ -145,7 +145,7 @@ greenEmailInput = function () {
     emailInput.classList.remove('is-error');
     emailInput.classList.remove('is-warning');
     emailInput.classList.add('is-success');
-}
+};
 
 
 signupFormHandler = async function() {
@@ -157,7 +157,7 @@ signupFormHandler = async function() {
     console.log('test');
     if (name && email && password) {
         console.log('everything ok');
-      const response = await fetch('/api/homepageR/:newUser', {
+      const response = await fetch('/api/homepageR/newUser', {
         method: 'POST',
         body: JSON.stringify({ name, email, password }),
         headers: { 'Content-Type': 'application/json' },
