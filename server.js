@@ -10,9 +10,27 @@ var exphbs = require('express-handlebars');
 const path = require('path');
 const helpers = require('./utils/helpers');
 const { User } = require('./models');
+const db = require('./clients/db')
+const user = require('./models/user');
+const withAuth = require('./utils/auth');
+
+
 
 //set up handlebars with custom helpers
 const hbs = exphbs.create({ helpers });
+
+//session
+const sess = {
+    secret: 'Super secret secret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: db
+    })
+};
+
+app.use(session(sess));
 
 
 //middleware for parsing JSON and urlencoded form data
@@ -34,15 +52,13 @@ app.use(routes);
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-const db = require('./clients/db')
-const user = require('./models/user');
 const models = require('./models');
 const {
     addHook
 } = require('./models/user');
 
 //enable the environment to specify a port, or use the default port. BC heruoku will generate a random port and use that.
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 
 
@@ -57,21 +73,56 @@ app.post('/emailValidation', (req, res) => {
 
 //Homepage
 app.get('/', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+      }
     res.render('home');
 });
 
 //Profile Page
-app.get('/profile', (req, res) => {
-    res.render('profile');
+app.get('/profile', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+        });
+        console.log('test3');
+        const user = userData.get({plan:true});
+        console.log('test4');
+
+        res.render('profile', {
+            ...user,
+            logged_in:true  
+        });
+    }
+    catch (err){
+        res.status(500).json(err);
+
+    }
+
 })
 
 //Gamepage
-app.get('/Gamepage', (req, res) => {
-    res.render('gamepage');
+app.get('/Gamepage', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+        });
+        const user = userData.get({plain:true});
+
+        res.render('gamepage', {
+            ...user,
+            logged_in:true
+        })
+    }
+    catch (err){
+        res.status(500).json(err);
+
+    }
 })
 
 //About
-app.get('/about',(req,res) => {
+app.get('/about', (req, res) => {
     res.render('about');
 })
 
@@ -79,16 +130,16 @@ app.get('/about',(req,res) => {
 app.get('/Leaderboards', async (req, res) => {
     try {
         const leaderboardData = await User.findAll({
-            attributes:['name','highscore']
+            attributes: ['name', 'highscore']
         })
         var topFiveUsersArray = []
-        const highscoresUnsorted = leaderboardData.map((highscores) => highscores.get({plain:true}));
+        const highscoresUnsorted = leaderboardData.map((highscores) => highscores.get({ plain: true }));
         const highscoresSorted = sortArray(highscoresUnsorted);
-        topFiveUsers(highscoresSorted,topFiveUsersArray);
+        topFiveUsers(highscoresSorted, topFiveUsersArray);
         res.render('leaderboards', {
             topFiveUsersArray
         });
-    } catch(err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 })
@@ -102,7 +153,7 @@ sortArray = function (highscores) {
 }
 
 //topfive
-topFiveUsers = function (highscoresSorted,topFiveUsersArray) {
+topFiveUsers = function (highscoresSorted, topFiveUsersArray) {
     for (i = 0; i < 5; i++) {
         topFiveUsersArray.push(highscoresSorted[i]);
     }
@@ -128,15 +179,15 @@ db.sync().then(() => {
     console.log('listening on port 8080')
 });
 
-//session
-const sess = {
-    secret: 'Super secret secret',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: db
-    })
-  };
+// //session
+// const sess = {
+//     secret: 'Super secret secret',
+//     cookie: {},
+//     resave: false,
+//     saveUninitialized: true,
+//     store: new SequelizeStore({
+//         db: db
+//     })
+// };
 
-  app.use(session(sess));
+// app.use(session(sess));

@@ -6,6 +6,7 @@ const inputFields = document.getElementsByTagName("input");
 const signupSubmit = document.getElementById("signupSubmit");
 const userPasswordInputDiv = document.getElementById("userPasswordInputDiv");
 const emailInputDiv = document.getElementById("emailInputDiv");
+const carlMessageBox = document.getElementById('errorMessage');
 const signupInputsValid = {
     emailInput: false,
     sUsername: false,
@@ -42,6 +43,11 @@ clearInputFields = function (inputFields) {
             inputFields[ii].value = "";
         }
     }
+}
+
+
+changeCarlMessage = function(carlMessageBox) {
+    carlMessageBox.textContent = 'You can now login!'
 }
 
 //Listen to signup and change colors of input boxes User and Password accordingly
@@ -164,7 +170,10 @@ signupFormHandler = async function() {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        hideSignup(signupDiv,welcomeDiv);
+        showLogin(loginDiv,welcomeDiv);
+        changeCarlMessage(carlMessageBox);
+        // document.location.replace('/profile');
       } else {
         alert(response.statusText);
       }
