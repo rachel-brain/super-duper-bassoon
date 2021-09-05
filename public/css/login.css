@@ -1,0 +1,58 @@
+.slime {
+    width:100px;
+    height:auto;
+}
+
+.slimeMessageDiv {
+
+}
+
+.welcome {
+    font-size: x-large;
+}
+
+#welcomeDiv {
+    border-right: 3px solid whitesmoke;
+    padding-right:10px;
+}
+
+#signupDiv {
+    border-right: 3px solid whitesmoke;
+    padding-right:10px;
+}
+
+#loginDiv {
+    border-right: 3px solid whitesmoke;
+    padding-right:10px;
+}
+
+.carlGrayscale {
+    animation: carlGrayscale 0.5s linear;
+}
+
+#loginCentering {
+    margin-left: auto;
+    margin-right:auto;
+}
+
+
+@keyframes carlGrayscale {
+    0% {
+        filter:hue-rotate(285deg);
+    }
+    25% {
+        filter: hue-rotate(285deg);
+        filter:brightness(200%);
+        transform: scale(1.25);
+    }
+    50% {
+        /* filter:grayscale(100%); */
+        filter:brightness(500%);
+        transform: scale(1.25);
+    }
+    100% {
+        /* filter: grayscale(0%); */
+        filter:hue-rotate(0deg);
+        transform:scale(1);
+    }
+}

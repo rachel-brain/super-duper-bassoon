@@ -1,10 +1,53 @@
-<img src=".public/css/images/profile.png">
+<link rel="stylesheet" href="/css/profile.css" />
 
-{{#each games as |game| }}
-<div class="card">
-      <h2>{{user.name}} 's profile:</h2>
-           {{game}} {{score}}
+<div id="leaderboardsDiv" class="nes-container is-rounded is-dark with-title is-centered">
+      <ul class="backstory nes-list is-disc">
+            <li>The kingdom has fallen to a deadly virus...</li>
+            <li>Chaos has insued and everyone is violently roaming the streets</li>
+      </ul>
+      
+      <div class="messages">
+            <section class="message-list">
+                  <section class="message -left">
+                        <img class="slime" src="/images/slime gif.gif" />
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-left is-dark">
+                              <p>"What kingdom? it's <br>twenty twenty o..."</p>
+                        </div>
+                  </section>
+
+                  <section class="message -right">
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-right is-dark">
+                              <p>"Carl..."</p>
+                        </div>
+                        <img class="slimeRed" src="/images/slime gif.gif" />
+                  </section>
+
+                  <section class="message -left">
+                        <img class="slime" src="/images/slime gif.gif" />
+                        <!-- Balloon -->
+                        <div class="nes-balloon from-left is-dark">
+                              <p>"I mean... Oh no!"</p>
+                        </div>
+                  </section>
+            </section>
+      </div>
+
+
+      <ul class="backstory nes-list is-disc">
+            <li>Use the the arrow keys to dodge the incoming lunatics!</li>
+            <li>No respawns unfortunately, its a realism simulator</li>
+      </ul>
+
+      <div class = "play&leaderboards">
+            <button type="button" class="nes-btn is-warning">Start</button>
+            <button type="button" class="nes-btn is-warning">Leaderboards</button>
+      </div>
+
+
+
 </div>
 
+
 <script src=".public/js/winnerscript.js"></script>
-{{/each}}
