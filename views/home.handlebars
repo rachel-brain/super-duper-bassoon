@@ -15,7 +15,7 @@
     <div id="signupDiv" class="hidden">
         <div id="emailInputDiv" class="nes-field">
             <label> E-mail</label>
-            <input id="emailInput" type="text" id="name_field" class="nes-input is-error">
+            <input type = "email" id="emailInput" type="text" id="name_field" class="nes-input is-error">
         </div>
 
         <div id="userPasswordInputDiv">
@@ -25,7 +25,7 @@
             </div>
             <div class="nes-field">
                 <label> Password</label>
-                <input id="sPassword" type="text" id="name_field" class="nes-input is-error">
+                <input type = "password" id="sPassword" type="text" id="name_field" class="nes-input is-error">
             </div>
             <div class="signupButtonContainer">
                 <button onclick="hideSignup(signupDiv,welcomeDiv)" type="button"
@@ -46,7 +46,7 @@
         </div>
         <div class="nes-field">
             <label> Password</label>
-            <input id="lPassword" type="text" id="name_field" class="nes-input is-error">
+            <input type = "password" id="lPassword" type="text" id="name_field" class="nes-input is-error">
         </div>
         <div>
 
@@ -56,12 +56,12 @@
         <button onclick="loginFormHandler() " type="button" class="signupBack nes-btn is-warning">Login</button>
     </div>
 
-    <div class="slimeMessageDiv">
+    <div id = "carlBest" class="slimeMessageDiv">
         <section class="message -left">
             <img onclick="animateCarl()" id="carl" class="slime" src="/images/slime gif.gif" />
             <!-- Balloon -->
             <div class="nes-balloon from-left is-dark">
-                <p id="errorMessage">"Hi i'm Carl"</p>
+                <p id="errorMessage">"Hi I'm Carl"</p>
             </div>
         </section>
 

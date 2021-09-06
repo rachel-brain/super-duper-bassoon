@@ -27,7 +27,7 @@
 .messages {
     margin-right: auto;
     margin-left: auto;
-    width: 600px;
+    width: 650px;
 }
 
 .-left {
@@ -55,3 +55,64 @@
     display:inline;
     font-size: x-large;
 }
+
+th {
+    font-size: large;
+}
+
+@media only screen and (max-width: 1249px) {
+    #leaderboardsParent {
+        flex-direction: column;
+    }
+
+    .message-list {
+        border-left: none;
+        border-top:5px solid whitesmoke;
+        padding-top: 10px;
+    }
+
+    .leaderboardsTable {
+        padding-bottom: 10px;
+    }
+
+  }
+
+  @media only screen and (max-width: 811px) {
+    #wizardWipeout {
+        width:300px;
+    }
+
+    th {
+        font-size: small;
+    }
+    .tfuHeading {
+        font-size: medium;
+    }
+
+    .star {
+        width:40px;
+    }
+
+    td {
+        font-size: x-small;
+    }
+
+    .slime {
+        width:50px;
+        height:auto;
+    }
+
+    .slimeRed {
+        width:50px;
+        height: auto;
+    }
+
+    p {
+        font-size: x-small;
+    }
+
+    .messages {
+        width:400px;
+    }
+
+  }

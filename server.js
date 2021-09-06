@@ -132,12 +132,14 @@ app.get('/Leaderboards', async (req, res) => {
         const leaderboardData = await User.findAll({
             attributes: ['name', 'highscore']
         })
-        var topFiveUsersArray = []
+        var topFiveUsersArray = [];
+        const isNewHighscore = leaderboardData.newHighscore;
         const highscoresUnsorted = leaderboardData.map((highscores) => highscores.get({ plain: true }));
         const highscoresSorted = sortArray(highscoresUnsorted);
         topFiveUsers(highscoresSorted, topFiveUsersArray);
         res.render('leaderboards', {
-            topFiveUsersArray
+            topFiveUsersArray,
+            isNewHighscore
         });
     } catch (err) {
         res.status(500).json(err);
