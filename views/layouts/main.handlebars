@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/main.css"/>
-    
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="/js/main.js"></script>
     {{!-- delete this --}}
     <title>Main page</title>
 </head>
@@ -17,18 +17,27 @@
 <body>
     <header>
         <div id="parentNavbarContainer">
-            <img id="wizardWipeout" src="/images/wizard Wipeout.png" alt="Wuzard Wipeout Logo" />
+            <img onclick="goToProfile()" id="wizardWipeout" src="/images/wizard Wipeout.png"
+                alt="Wuzard Wipeout Logo" />
         </div>
-    {{!-- delete this --}}
+        <div>
+            {{#if logged_in}}
+            <p id="logout">Logout</p>
+            {{/if}}
+        </div>
+
+        {{!-- delete this --}}
     </header>
 
     {{{body}}}
 
     <footer>
-        <h4>© Super Duper Bassoon</h4>
-        {{!-- <h4>test</h4> --}}
+        <a href="https://github.com/rachel-brain/super-duper-bassoon">
+            <h4 id="sdb">© Super Duper Bassoon</h4>
+        </a>
+        <h4 id="about" onclick="renderAbout()">About</h4>
     </footer>
 
 </body>
 
-</html> 
+</html>

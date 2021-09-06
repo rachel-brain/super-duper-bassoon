@@ -1,17 +1,7 @@
-goToGamepage = function () {
-
-}
-
 renderGame = async function() {
-    
+    location.replace('/gamepage');
 }
 
 renderLeaderboards = async function() {
-    
+    location.replace('/leaderboards');
 }
-
-// const response = await fetch('/api/homepageR/login', {
-//     method: 'POST',
-//     body: JSON.stringify({email,password}),
-//     headers: {'Content-Type': 'application/json'},
-// });

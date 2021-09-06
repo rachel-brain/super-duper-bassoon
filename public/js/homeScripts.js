@@ -90,11 +90,22 @@ function updateValueEmail(e,signupInputsValid) {
         e.target.classList.add('is-warning');
         signupInputsValid[inputTargetId] = false;
     }
+    if (inputTarget.checkValidity()) {
+        inputTarget.classList.remove('is-warning');
+        inputTarget.classList.add('is-success');
+        signupInputsValid[inputTargetId] = true;
+    }
+    else {
+        inputTarget.classList.remove('is-warning');
+        inputTarget.classList.remove('is-success');
+        inputTarget.classList.add('is-error');
+        signupInputsValid[inputTargetId] = false;
+    }
 }
 
 //If contents of inputs in the signup page are valid, make the submit button clickable
 checkSignupInput = function(signupInputsValid,signupSubmit) {
-    if(signupInputsValid.emailInput === false && signupInputsValid.sUsername === true && signupInputsValid.sPassword === true) {
+    if(signupInputsValid.emailInput === true && signupInputsValid.sUsername === true && signupInputsValid.sPassword === true) {
         signupSubmit.classList.remove("is-disabled");
         signupSubmit.classList.add("is-warning");
         console.log('this block is working');

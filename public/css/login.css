@@ -3,28 +3,10 @@
     height:auto;
 }
 
-.slimeMessageDiv {
-
-}
-
 .welcome {
     font-size: x-large;
 }
 
-#welcomeDiv {
-    border-right: 3px solid whitesmoke;
-    padding-right:10px;
-}
-
-#signupDiv {
-    border-right: 3px solid whitesmoke;
-    padding-right:10px;
-}
-
-#loginDiv {
-    border-right: 3px solid whitesmoke;
-    padding-right:10px;
-}
 
 .carlGrayscale {
     animation: carlGrayscale 0.5s linear;
@@ -56,3 +38,61 @@
         transform:scale(1);
     }
 }
+
+@media only screen and (max-width: 940px) {
+    #loginCentering {
+        display:flex;
+        flex-direction: column;
+    }
+
+    #carlBest {
+        border-top: 5px solid whitesmoke;
+        padding-top: 10px;
+    }
+
+    #welcomeDiv {
+        padding-bottom:10px;
+    }
+    
+    #signupDiv {
+        padding-bottom:10px;
+    }
+    
+    #loginDiv {
+        padding-bottom:10px;
+    }
+    
+    #wizardWipeout {
+        width:300px;
+        height:auto;
+    }
+
+  }
+
+  @media only screen and (min-width: 941px) {
+    #welcomeDiv {
+        border-right: 5px solid whitesmoke;
+        padding-right:10px;
+    }
+    
+    #signupDiv {
+        border-right: 5px solid whitesmoke;
+        padding-right:10px;
+    }
+    
+    #loginDiv {
+        border-right: 5px solid whitesmoke;
+        padding-right:10px;
+    }
+
+    #loginCentering {
+        margin-top:10%;
+    }
+    
+  }
+
+  @media only screen and (max-width: 657px) {
+    .nes-balloon {
+        display:none;
+    }
+  }
