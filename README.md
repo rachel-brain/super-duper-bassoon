@@ -1,6 +1,5 @@
-# GROUP 4 - PROJECT 2
-RETRO-STYLE GAME 'WIZARD WIPEOUT!'
-
+# RETRO-STYLE GAME 'WIZARD WIPEOUT!'
+GROUP 4 - PROJECT 2
 
 ## Development Team
 Mustafa Abdelrahman, Rachel Brain, Suva Pokharel & David Szamek
@@ -63,15 +62,16 @@ The application uses:
 - bcrypt
 - dotenv
 - express
-- express-handlebars
+- handlebars
 - mysql2
 - sequelize
 - canvas html
+- nes.css
 - github
 - heroku
 
 ## Usage
-The game 'Wizard Wipeout!' website will be deployed on the Heroku webpage in the player's prefered browser.  After the player logs in or registers, they will be presented with a proile and rules page.  The player presses the "GO!" button when ready to play.
+The game 'Wizard Wipeout!' website will be deployed on the Heroku webpage in the player's prefered browser.  After the player logs in or registers, they will be presented with a profile and rules page.  The player presses the "GO!" button when ready to play.
 
 ## Heroku URL
 https://dry-beach-54923.herokuapp.com/
