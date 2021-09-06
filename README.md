@@ -30,8 +30,8 @@ THEN I am presented with a Login/Register window
 WHEN I log in or register
 THEN I am presented with a Profile dashboard including some comic content and the rules of the game
 WHEN I have finished reading the rules and am ready to start
-THEN I press the “Go!” button
-WHEN I press “Go!”
+THEN I press the “Start” button
+WHEN I press “Start”
 THEN I am taken to an old-school-styled game page with a milli-second countup which begins immediately
 WHEN the count begins the enemies start their approach 
 THEN I am able to control the movement of my avatar using the arrow keys
@@ -55,7 +55,9 @@ THEN I do not have to re-enter my login details as they are saved via cookies
 ```
 
 ## Screenshot
-![Screenshot of log in/register page](./public/images/log-in-register-page.JPG).
+![Screenshot of log in/register page](./public/images/log-in-register-page.JPG)
+
+![Screenshot of profile and rules page](./public/images/profile-page.JPG)
 
 ## Tools Used
 The application uses:
