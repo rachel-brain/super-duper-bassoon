@@ -20,8 +20,25 @@
 
 }
 
+.gamepageButtonDiv {
+    margin-left: auto;
+    margin-right:auto;
+    padding: 30px;
+}
+
+.gamepageButtons {
+    width:300px;
+}
+
 @media only screen and (max-width: 831px) {
     #wizardWipeout {
         width:300px;
     }
+
+    .gamepageButtonDiv {
+        display:flex;
+        flex-direction: column;
+    }
   }
+
+  

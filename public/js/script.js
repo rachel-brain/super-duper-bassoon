@@ -21,6 +21,15 @@ const player = {
     moving: false
 };
 
+renderGame = async function() {
+    location.replace('/gamepage');
+}
+
+renderLeaderboards = async function() {
+    location.replace('/leaderboards');
+}
+
+
 const playerSprite = new Image();
 playerSprite.src = "/assets/witch/Alchemist.png";
 
