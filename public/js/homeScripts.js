@@ -21,6 +21,7 @@ showLogin = function (loginDiv,welcomeDiv) {
 showSignup = function (signupDiv,welcomeDiv) {
     welcomeDiv.classList.add("hidden");
     signupDiv.classList.remove("hidden");
+    newCarlMessage(carlMessageBox,`Make sure your <br> password is <br> 8 characters!`);
 }
 
 hideSignup = function (signupDiv,welcomeDiv) {
@@ -28,6 +29,7 @@ hideSignup = function (signupDiv,welcomeDiv) {
     welcomeDiv.classList.remove("hidden");
     clearInputFields(inputFields);
     removeShake(inputFields);
+    newCarlMessage(carlMessageBox,`Hi i'm Carl!`);
 }
 
 hideLogin = function (loginDiv,welcomeDiv) {
@@ -35,6 +37,10 @@ hideLogin = function (loginDiv,welcomeDiv) {
     welcomeDiv.classList.remove("hidden");
     clearInputFields(inputFields);
     removeShake(inputFields);
+}
+
+newCarlMessage = function(carlMessageBox,message) {
+    carlMessageBox.innerHTML = message;
 }
 
 clearInputFields = function (inputFields) {
@@ -57,19 +63,29 @@ userPasswordInputDiv.addEventListener('input', (e) => {
 function updateValueSignupUserPassword(e,signupInputsValid) {
     const inputTarget = e.target;
     const inputTargetId = e.target.id;
-    if (inputTarget.value.length != 0 && e.target.value.length < 4) {
+    if (inputTargetId === 'sUsername' && inputTarget.value.length != 0 && inputTarget.value.length < 4) {
         inputTarget.classList.remove('is-error');
-        e.target.classList.add('is-warning');
+        inputTarget.classList.add('is-warning');
+        signupInputsValid[inputTargetId] = false;
+    }
+    else if (inputTargetId === 'sPassword' && inputTarget.value.length !=0 && inputTarget.value.length < 8) {
+        inputTarget.classList.remove('is-error');
+        inputTarget.classList.add('is-warning');
         signupInputsValid[inputTargetId] = false;
     }
     else if (e.target.value.length === 0) {
-        e.target.classList.remove('is-warning');
-        e.target.classList.add('is-error');
+        inputTarget.classList.remove('is-warning');
+        inputTarget.classList.add('is-error');
         signupInputsValid[inputTargetId] = false;
     }
-    else if (e.target.value.length > 3) {
-        e.target.classList.remove('is-warning');
+    else if (inputTargetId === 'sUsername' && inputTarget.value.length > 3) {
+        inputTarget.classList.remove('is-warning');
         e.target.classList.add('is-success');
+        signupInputsValid[inputTargetId] = true;
+    }
+    else if (inputTargetId === 'sPassword' && inputTarget.value.length > 7) {
+        inputTarget.classList.remove('is-warning');
+        inputTarget.classList.add('is-success');
         signupInputsValid[inputTargetId] = true;
     }
     checkSignupInput(signupInputsValid,signupSubmit);
@@ -101,6 +117,7 @@ function updateValueEmail(e,signupInputsValid) {
         inputTarget.classList.add('is-error');
         signupInputsValid[inputTargetId] = false;
     }
+    checkSignupInput(signupInputsValid,signupSubmit);
 }
 
 //If contents of inputs in the signup page are valid, make the submit button clickable
